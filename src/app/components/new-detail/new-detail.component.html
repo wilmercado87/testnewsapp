@@ -1,0 +1,19 @@
+<div class="card" *ngIf="new">
+    <header class="card-header">
+      <p class="card-header-title">New Detail</p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{new.title}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{new.body}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,8 @@
+<nav class="navbar is-light">
+
+    <div class="navbar-brand">
+        <div class="navbar-item header-item" *ngFor="let item of links">
+            <a [routerLink]="item.url">{{ item.name }}</a>
+        </div>
+    </div>
+  </nav>

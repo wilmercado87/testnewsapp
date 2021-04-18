@@ -1,0 +1,103 @@
+<div class="card">
+    <header class="card-header">
+      <p class="card-header-title">Register Contact</p>
+    </header>
+    <div class="card-content">
+      <div class="content content-item">
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+            <table>
+                <tr>
+                    <td>
+                        <button mat-raised-button [disabled]="contactForm.invalid">Guardar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Name</mat-label>
+                            <input type="text" matInput formControlName="name" placeholder="Enter your name"/>
+                            <mat-error *ngIf="contactForm.hasError('name') && !contactForm.hasError('name')">
+                              Please enter a valid name
+                            </mat-error>
+                            <mat-error *ngIf="contactForm.hasError('required')">
+                              Name is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Family Name</mat-label>
+                            <input type="text" matInput formControlName="family_name" placeholder="Enter your family name"/>
+                            <mat-error *ngIf="contactForm.hasError('family_name') && !contactForm.hasError('family_name')">
+                              Please enter a valid family name
+                            </mat-error>
+                            <mat-error *ngIf="contactForm.hasError('required')">
+                              Family Name is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="email" placeholder="email@example.com"/>
+                            <mat-error *ngIf="contactForm.hasError('email') && !contactForm.hasError('required')">
+                              Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="contactForm.hasError('required')">
+                              Email is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Phone</mat-label>
+                            <input type="tel" matInput maxlength="10" formControlName="phone" placeholder="Enter your phone"/>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Program</mat-label>
+                            <mat-select formControlName="program">
+                                <mat-option value="" selected>Select options</mat-option>
+                                <mat-option *ngFor="let item of programs | distinctProgram" [value]="item.id">{{item.name}}</mat-option>
+                            </mat-select>
+
+                            <mat-error *ngIf="contactForm.hasError('program') && !contactForm.hasError('program')">
+                              Please enter a valid program
+                            </mat-error>
+                            <mat-error *ngIf="contactForm.hasError('required')">
+                              Program is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Comment</mat-label>
+                            <textarea matInput formControlName="comment" style="width: 250px; height: 100px;"></textarea>
+                            <mat-error *ngIf="contactForm.hasError('comment') && !contactForm.hasError('comment')">
+                              Please enter a valid program
+                            </mat-error>
+                            <mat-error *ngIf="contactForm.hasError('required')">
+                              Comment is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                
+            </table>
+          </form>
+      </div>
+    </div>
+  </div>
